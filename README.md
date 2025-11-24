@@ -1,46 +1,169 @@
-# Getting Started with Create React App
+# 电商产品列表应用
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 项目介绍
 
-## Available Scripts
+这是一个现代化的电商产品列表应用，提供商品筛选、排序、搜索等功能，帮助用户快速找到所需商品。应用采用 React + TypeScript 开发，配合 Ant Design 组件库实现美观的用户界面，并使用 Redux Toolkit 进行状态管理。
 
-In the project directory, you can run:
+## 功能特性
 
-### `npm start`
+- **商品筛选**：支持按分类、价格区间进行筛选
+- **商品排序**：支持多种排序方式（如最新上架等）
+- **商品搜索**：支持通过商品名称或描述进行搜索
+- **活跃筛选标签**：直观显示当前应用的筛选条件，支持单个移除或全部清除
+- **响应式设计**：完美适配桌面端和移动端
+- **商品卡片展示**：展示商品图片、名称、价格、评分、销量等信息
+- **加入购物车**：支持将商品添加到购物车
+- **缺货提示**：对缺货商品显示清晰的缺货标记
+- **骨架屏**：在数据加载过程中显示骨架屏，提升用户体验
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 技术栈
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **前端框架**：React 18
+- **类型系统**：TypeScript
+- **UI组件库**：Ant Design
+- **状态管理**：Redux Toolkit
+- **构建工具**：Create React App
+- **样式方案**：CSS Modules
 
-### `npm test`
+## 代码结构
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── components/              # 可复用组件
+│   ├── FilterBar/           # 筛选栏组件
+│   ├── ProductCard/         # 商品卡片组件
+│   ├── ProductList/         # 商品列表组件
+│   ├── RecommendedProducts/ # 推荐商品组件
+│   └── SkeletonCard/        # 骨架屏组件
+├── pages/                   # 页面组件
+│   ├── ProductPage.css      # 产品页面样式
+│   └── ProductPage.tsx      # 产品页面组件
+├── store/                   # Redux状态管理
+│   ├── hooks.ts             # 自定义Hooks
+│   ├── index.ts             # Store配置
+│   └── product/             # 产品相关状态
+├── App.css                  # 应用全局样式
+├── App.tsx                  # 应用主组件
+└── index.tsx                # 应用入口
+```
 
-### `npm run build`
+## 核心组件说明
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### FilterBar 组件
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+负责商品筛选功能，包含分类选择、排序选择、价格区间筛选和搜索框等。主要功能：
+- 价格预设按钮，快速选择常见价格区间
+- 自定义价格滑块，精确设置价格范围
+- 活跃筛选标签展示，支持单个移除
+- 清除全部筛选条件功能
+- 移动端适配的抽屉式筛选面板
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ProductCard 组件
 
-### `npm run eject`
+展示单个商品信息的卡片组件，主要功能：
+- 商品图片展示
+- 商品名称和标签显示
+- 价格和折扣信息
+- 评分和销量统计
+- 加入购物车功能
+- 缺货状态提示
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### ProductList 组件
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+负责展示商品列表，处理布局和分页等逻辑，主要功能：
+- 响应式网格布局
+- 商品卡片展示
+- 骨架屏加载状态
+- 空状态处理
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 遇到的技术难点及解决方案
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 1. 响应式布局优化
 
-## Learn More
+**问题**：在不同屏幕尺寸下，商品列表和筛选栏的布局需要自适应，特别是移动端的用户体验。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**解决方案**：
+- 针对移动端实现了抽屉式筛选面板，点击按钮从右侧滑出
+- 使用媒体查询（575px、768px、1024px断点）调整组件布局和样式
+- 优化了商品卡片在不同屏幕尺寸下的显示效果，确保在各种设备上都能完美展示
+- 使用CSS Grid和Flexbox实现灵活的布局系统
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2. 商品卡片重叠问题
+
+**问题**：在特定屏幕尺寸下，商品卡片之间出现重叠，影响用户体验。
+
+**解决方案**：
+- 为商品行添加了负边距和gap属性，确保卡片之间有足够的间距
+- 为商品卡片设置了明确的宽度限制和盒模型属性
+- 优化了卡片的position和z-index属性，确保正确的堆叠顺序
+- 调整了卡片内部元素的大小和间距，减小了整体高度
+
+### 3. 筛选标签样式优化
+
+**问题**：筛选标签的删除按钮显示不居中，整体样式不够美观。
+
+**解决方案**：
+- 自定义了标签样式，修改为圆角矩形设计（border-radius: 16px）
+- 为删除按钮添加了居中显示的样式，确保垂直水平居中
+- 添加了删除按钮的悬停效果，提升交互体验
+- 隐藏了默认的Ant Design ribbon装饰元素
+- 为移动端优化了标签和按钮的尺寸
+
+### 4. CSS语法错误修复
+
+**问题**：在修改CSS样式过程中，出现了嵌套媒体查询和未闭合代码块的语法错误。
+
+**解决方案**：
+- 修复了错误嵌套的媒体查询结构
+- 确保所有的CSS代码块都正确闭合
+- 移除了多余的闭合括号
+- 通过多次构建验证，确保CSS语法正确无误
+
+## 安装与运行
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 开发模式运行
+
+```bash
+npm start
+```
+
+### 构建生产版本
+
+```bash
+npm run build
+```
+
+## 部署
+
+生产版本构建完成后，可以通过以下方式部署：
+
+```bash
+# 全局安装serve
+npm install -g serve
+
+# 启动静态服务器
+serve -s build
+```
+
+## 项目亮点
+
+1. **现代化UI设计**：采用Ant Design组件库，打造专业美观的界面
+2. **优秀的响应式体验**：完美适配桌面端和移动端
+3. **优化的性能**：使用骨架屏减少加载时的空白感，提升用户体验
+4. **完善的类型支持**：TypeScript确保代码质量和开发体验
+5. **模块化设计**：组件化架构使代码易于维护和扩展
+
+## 未来优化方向
+
+1. 添加商品详情页面
+2. 实现购物车功能的完整流程
+3. 优化图片加载性能，实现懒加载
+4. 添加用户登录和个人中心功能
+5. 实现商品收藏功能
+6. 优化大数据量下的性能表现
