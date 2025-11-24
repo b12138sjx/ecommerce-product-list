@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Layout, Typography } from 'antd';
+import { Layout, Typography, Pagination } from 'antd';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { fetchProducts, fetchRecommendedProducts } from '../store/product/productSlice';
+import { fetchProducts, fetchRecommendedProducts, setPagination } from '../store/product/productSlice';
 import ProductList from '../components/ProductList/ProductList';
 import VirtualizedProductList from '../components/ProductList/VirtualizedProductList';
 import FilterBar from '../components/FilterBar/FilterBar';
@@ -68,6 +68,19 @@ const ProductPage: React.FC = () => {
             totalItems={totalItems}
           />
         )}
+
+        {/* 分页 */}
+        <div className="pagination-section">
+          <Pagination
+            current={pagination.page}
+            pageSize={pagination.pageSize}
+            total={totalItems}
+            onChange={(page, pageSize) => dispatch(setPagination({ page, pageSize }))}
+            showSizeChanger
+            showTotal={(total) => `共 ${total} 条数据`}
+            pageSizeOptions={['12', '24', '48']}
+          />
+        </div>
       </Content>
     </Layout>
   );

@@ -1,87 +1,112 @@
 .recommended-products-container {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  padding: 24px;
   margin-bottom: 24px;
+  overflow: hidden;
 }
 
 .section-header {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid #fff2f0;
+  background: linear-gradient(90deg, #fff2f0 0%, #fff 100%);
+  padding-left: 12px;
 }
 
 .header-icon {
   color: #ff4d4f;
-  font-size: 20px;
+  font-size: 24px;
+  margin-right: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .section-title {
   margin: 0;
   color: #333;
   font-weight: 600;
+  font-size: 20px;
 }
 
-.recommended-carousel {
-  overflow: hidden;
+/* 横向滚动容器 */
+.recommended-scroll-container {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 8px; /* 为滚动条留出空间 */
+  scroll-behavior: smooth;
+  /* 隐藏滚动条但保留功能 */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.recommended-carousel .slick-slide {
-  padding: 0 4px;
+/* 隐藏Chrome/Safari的滚动条 */
+.recommended-scroll-container::-webkit-scrollbar {
+  display: none;
 }
 
-.recommended-carousel .slick-list {
-  margin: 0 -4px;
+/* 滚动内容 */
+.recommended-scroll-content {
+  display: flex;
+  gap: 16px;
+  min-width: fit-content;
+  padding-right: 16px;
 }
 
-.recommended-carousel .slick-dots {
-  bottom: -30px;
+/* 推荐商品项 */
+.recommended-item {
+  flex-shrink: 0;
+  width: 220px; /* 固定宽度，确保一行显示 */
 }
 
-.recommended-carousel .slick-dots li button:before {
-  font-size: 12px;
-}
-
-.recommended-carousel .slick-prev,
-.recommended-carousel .slick-next {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 10;
-}
-
-.recommended-carousel .slick-prev {
-  left: 10px;
-}
-
-.recommended-carousel .slick-next {
-  right: 10px;
-}
-
-.recommended-carousel .slick-prev:before,
-.recommended-carousel .slick-next:before {
-  color: #666;
-  font-size: 18px;
-}
-
+/* 无推荐商品状态 */
 .no-recommendations {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 240px;
   background-color: #fafafa;
-  border-radius: 4px;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.no-recommendations .ant-typography {
+  font-size: 16px;
 }
 
 /* 响应式调整 */
+@media (max-width: 1024px) {
+  .recommended-products-container {
+    padding: 20px;
+  }
+  
+  .section-header {
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 768px) {
   .recommended-products-container {
     padding: 16px;
+    margin-bottom: 16px;
   }
   
   .section-header {
@@ -90,10 +115,39 @@
   }
   
   .section-title {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .header-icon {
+    font-size: 20px;
+  }
+  
+  .recommended-carousel .slick-prev,
+  .recommended-carousel .slick-next {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .recommended-carousel .slick-prev:before,
+  .recommended-carousel .slick-next:before {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .recommended-products-container {
+    padding: 12px;
+  }
+  
+  .section-header {
+    padding-left: 8px;
+  }
+  
+  .recommended-carousel .slick-slide {
+    padding: 0 6px;
+  }
+  
+  .recommended-carousel .slick-list {
+    margin: 0 -6px;
   }
 }

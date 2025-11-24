@@ -412,18 +412,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ totalItems }) => {
         </div>
       </div>
 
-      {/* 分页 */}
-      <div className="pagination-section">
-        <Pagination
-          current={pagination.page}
-          pageSize={pagination.pageSize}
-          total={totalItems}
-          onChange={handlePaginationChange}
-          showSizeChanger
-          showTotal={(total) => `共 ${total} 条数据`}
-          pageSizeOptions={['12', '24', '48']}
-        />
-      </div>
+
     </div>
   );
 };
