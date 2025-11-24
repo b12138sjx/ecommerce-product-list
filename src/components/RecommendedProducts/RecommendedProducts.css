@@ -1,0 +1,99 @@
+.recommended-products-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.header-icon {
+  color: #ff4d4f;
+  font-size: 20px;
+}
+
+.section-title {
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.recommended-carousel {
+  overflow: hidden;
+}
+
+.recommended-carousel .slick-slide {
+  padding: 0 4px;
+}
+
+.recommended-carousel .slick-list {
+  margin: 0 -4px;
+}
+
+.recommended-carousel .slick-dots {
+  bottom: -30px;
+}
+
+.recommended-carousel .slick-dots li button:before {
+  font-size: 12px;
+}
+
+.recommended-carousel .slick-prev,
+.recommended-carousel .slick-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.recommended-carousel .slick-prev {
+  left: 10px;
+}
+
+.recommended-carousel .slick-next {
+  right: 10px;
+}
+
+.recommended-carousel .slick-prev:before,
+.recommended-carousel .slick-next:before {
+  color: #666;
+  font-size: 18px;
+}
+
+.no-recommendations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .recommended-products-container {
+    padding: 16px;
+  }
+  
+  .section-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+  
+  .header-icon {
+    font-size: 16px;
+  }
+}

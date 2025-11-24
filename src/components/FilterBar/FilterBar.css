@@ -1,0 +1,237 @@
+.filter-bar-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-item {
+  margin-bottom: 16px;
+}
+
+/* 移动端筛选器 */
+.mobile-filter-toggle {
+  display: none;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.filter-toggle-btn {
+  width: 100%;
+}
+
+.filter-badge {
+  margin-left: 8px;
+}
+
+.mobile-filter-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 90%;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 1000;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  transition: right 0.3s ease;
+}
+
+.mobile-filter-panel.open {
+  right: 0;
+}
+
+.mobile-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1001;
+}
+
+.mobile-filter-header h3 {
+  margin: 0;
+}
+
+.mobile-filter-content {
+  padding: 16px;
+}
+
+.mobile-search {
+  width: 100%;
+}
+
+.mobile-filter-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 价格预设按钮 */
+.price-presets {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.preset-btn {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.preset-btn:hover {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.preset-btn.active {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}
+
+/* 活跃筛选标签 */
+.active-filters {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.active-filters-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.filter-tag {
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: #f0f5ff;
+  color: #1890ff;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.clear-all-btn {
+  color: #ff4d4f;
+}
+
+.clear-all-btn:hover {
+  color: #ff7875;
+  background-color: #fff1f0;
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.price-range-text {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.reset-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.total-count {
+  font-size: 14px;
+}
+
+.pagination-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
+  .mobile-filter-toggle {
+    display: block;
+  }
+  
+  .filter-section {
+    display: none;
+  }
+  
+  .price-presets {
+    gap: 4px;
+  }
+  
+  .preset-btn {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 575px) {
+  .filter-bar-container {
+    padding: 12px;
+  }
+  
+  .mobile-filter-panel {
+    width: 95%;
+  }
+  
+  .price-range-text {
+    font-size: 12px;
+  }
+  
+  .reset-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .reset-section Button {
+    width: 100%;
+  }
+  
+  .filter-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+  
+  .pagination-section {
+    padding-top: 12px;
+  }
+  
+  .ant-pagination {
+    flex-wrap: wrap;
+  }
+}
