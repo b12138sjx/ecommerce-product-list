@@ -1,18 +1,21 @@
 .filter-bar-container {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin-bottom: 24px;
   position: relative;
+  border: 1px solid #f0f0f0;
 }
 
 .filter-section {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .filter-item {
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 移动端筛选器 */
@@ -88,15 +91,18 @@
 }
 
 .preset-btn {
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
   transition: all 0.3s ease;
+  background-color: #f5f5f5;
+  border-color: #f0f0f0;
 }
 
 .preset-btn:hover {
   border-color: #1890ff;
   color: #1890ff;
+  background-color: #e6f7ff;
 }
 
 .preset-btn.active {
@@ -107,26 +113,33 @@
 
 /* 活跃筛选标签 */
 .active-filters {
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px solid #f0f0f0;
 }
 
 .active-filters-label {
   font-weight: 500;
-  margin-bottom: 8px;
-  color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 12px;
+  color: #262626;
+  font-size: 14px;
 }
 
 .filter-tag {
-  padding: 4px 12px;
-  border-radius: 4px;
-  background-color: #f0f5ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #e6f7ff;
   color: #1890ff;
   font-size: 14px;
-  margin-right: 8px;
+  margin-right: 10px;
   margin-bottom: 8px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.filter-tag:hover {
+  background-color: #bae7ff;
 }
 
 .clear-all-btn {
@@ -142,7 +155,8 @@
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
-  color: #333;
+  font-weight: 500;
+  color: #262626;
 }
 
 .price-range-text {
@@ -163,13 +177,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
-  padding-top: 16px;
+  margin-top: 16px;
+  padding-top: 20px;
   border-top: 1px solid #f0f0f0;
 }
 
 .total-count {
   font-size: 14px;
+  font-weight: 500;
+  color: #595959;
 }
 
 .pagination-section {
@@ -190,48 +206,72 @@
   }
   
   .price-presets {
-    gap: 4px;
+    gap: 6px;
   }
   
   .preset-btn {
-    font-size: 11px;
-    padding: 3px 8px;
+    font-size: 12px;
+    padding: 4px 10px;
   }
 }
 
 @media (max-width: 575px) {
   .filter-bar-container {
-    padding: 12px;
+    padding: 16px;
+    border-radius: 8px;
   }
   
   .mobile-filter-panel {
     width: 95%;
+    border-radius: 12px 0 0 12px;
+  }
+  
+  .mobile-filter-header {
+    padding: 16px 20px;
+    background-color: #fafafa;
+  }
+  
+  .mobile-filter-content {
+    padding: 20px;
   }
   
   .price-range-text {
     font-size: 12px;
+    color: #8c8c8c;
   }
   
   .reset-section {
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 16px;
   }
   
   .reset-section Button {
     width: 100%;
+    padding: 10px;
   }
   
   .filter-tag {
-    font-size: 12px;
-    padding: 2px 8px;
+    font-size: 13px;
+    padding: 5px 10px;
+    margin-right: 8px;
+    margin-bottom: 6px;
   }
   
-  .pagination-section {
-    padding-top: 12px;
+  .active-filters {
+    margin-top: 16px;
+    padding-top: 16px;
   }
   
-  .ant-pagination {
-    flex-wrap: wrap;
+  .active-filters-label {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+  
+  .total-count {
+    font-size: 13px;
+    text-align: center;
   }
 }

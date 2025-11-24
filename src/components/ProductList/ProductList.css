@@ -10,12 +10,22 @@
 .product-list-container .ant-row {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -12px;
+  gap: 24px;
 }
 
 .product-col {
-  margin-bottom: 20px;
-  padding: 0 12px;
+  margin-bottom: 0 !important;
+  padding: 0 12px !important;
   transition: transform 0.2s ease;
+}
+
+/* 确保卡片之间有足够的间距 */
+.product-col .ant-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  overflow: visible;
 }
 
 .product-col:hover {
@@ -45,8 +55,13 @@
     padding: 20px;
   }
   
+  .product-list-container .ant-row {
+    margin: 0 -10px;
+    gap: 20px;
+  }
+  
   .product-col {
-    margin-bottom: 18px;
+    padding: 0 10px !important;
   }
 }
 
@@ -56,15 +71,23 @@
     margin-top: 16px;
   }
   
+  .product-list-container .ant-row {
+    margin: 0 -8px;
+    gap: 16px;
+  }
+  
   .product-col {
-    margin-bottom: 16px;
-    padding: 0 8px;
+    padding: 0 8px !important;
   }
 }
 
 @media (max-width: 575px) {
+  .product-list-container .ant-row {
+    margin: 0 -6px;
+    gap: 12px;
+  }
+  
   .product-col {
-    margin-bottom: 12px;
-    padding: 0 4px;
+    padding: 0 6px !important;
   }
 }
