@@ -127,7 +127,7 @@
 
 .filter-tag {
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 16px;
   background-color: #e6f7ff;
   color: #1890ff;
   font-size: 14px;
@@ -136,10 +136,58 @@
   display: inline-flex;
   align-items: center;
   transition: all 0.2s ease;
+  position: relative;
+  padding-right: 32px; /* 为删除按钮留出空间 */
 }
 
 .filter-tag:hover {
   background-color: #bae7ff;
+}
+
+/* 自定义删除按钮样式 */
+.ant-ribbon-wrapper {
+  position: relative;
+}
+
+.ant-ribbon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: transparent !important;
+  height: 100%;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.ant-ribbon-content {
+  background-color: transparent !important;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: none !important;
+}
+
+.ant-ribbon-corner {
+  display: none; /* 隐藏角落装饰 */
+}
+
+.ant-ribbon-content .anticon-delete {
+  color: #1890ff;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.ant-ribbon-content .anticon-delete:hover {
+  color: #ff4d4f;
+  transform: scale(1.1);
 }
 
 .clear-all-btn {
@@ -256,8 +304,18 @@
   .filter-tag {
     font-size: 13px;
     padding: 5px 10px;
+    padding-right: 28px;
     margin-right: 8px;
     margin-bottom: 6px;
+  }
+  
+  .ant-ribbon-content {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .ant-ribbon-content .anticon-delete {
+    font-size: 12px;
   }
   
   .active-filters {
